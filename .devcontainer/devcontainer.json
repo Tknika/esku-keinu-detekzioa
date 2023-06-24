@@ -1,0 +1,23 @@
+{
+    "name": "Esku keinu detekzioa",
+    // Use the Dockerfile as the base image
+    "dockerFile": "Dockerfile",
+    // Use 'tknika' as the container user
+    "remoteUser": "tknika",
+    // Pass webcam device to the container
+    "runArgs": [
+        "--device=/dev/video0"
+    ],
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "streetsidesoftware.code-spell-checker",
+                "ms-python.python"
+            ]
+        }
+    },
+    // Install python dependencies
+    "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt"
+}
